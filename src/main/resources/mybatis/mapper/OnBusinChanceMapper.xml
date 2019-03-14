@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.OnBusinChanceMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.OnBusinChance" >
+    <id column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="INDIVIDFLAG" property="individflag" jdbcType="CHAR" />
+    <result column="SORTTAG" property="sorttag" jdbcType="CHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="BRANDID" property="brandid" jdbcType="DECIMAL" />
+    <result column="KEYWORD" property="keyword" jdbcType="VARCHAR" />
+    <result column="KEYWORD2" property="keyword2" jdbcType="VARCHAR" />
+    <result column="KEYWORD3" property="keyword3" jdbcType="VARCHAR" />
+    <result column="LPACKAGE" property="lpackage" jdbcType="VARCHAR" />
+    <result column="DELIVER" property="deliver" jdbcType="VARCHAR" />
+    <result column="TRANSPORT" property="transport" jdbcType="VARCHAR" />
+    <result column="UNIT" property="unit" jdbcType="VARCHAR" />
+    <result column="VALIDDATE" property="validdate" jdbcType="DECIMAL" />
+    <result column="PUBDATE" property="pubdate" jdbcType="DATE" />
+    <result column="PROVIDERID" property="providerid" jdbcType="DECIMAL" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="CHECKED" property="checked" jdbcType="CHAR" />
+    <result column="CHECKDATE" property="checkdate" jdbcType="DATE" />
+    <result column="CHECKMAN" property="checkman" jdbcType="VARCHAR" />
+    <result column="ENDDATE" property="enddate" jdbcType="DATE" />
+    <result column="NUM" property="num" jdbcType="VARCHAR" />
+    <result column="OPERSTATE" property="operstate" jdbcType="CHAR" />
+    <result column="STATES" property="states" jdbcType="CHAR" />
+    <result column="ORIGNPCI_ID" property="orignpciId" jdbcType="DECIMAL" />
+    <result column="ORIGN" property="orign" jdbcType="VARCHAR" />
+    <result column="YREPEATED" property="yrepeated" jdbcType="CHAR" />
+    <result column="SEARCHSTATE" property="searchstate" jdbcType="CHAR" />
+    <result column="DELDATE" property="deldate" jdbcType="DATE" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="DATE" />
+    <result column="WHOUPDATE" property="whoupdate" jdbcType="VARCHAR" />
+    <result column="WHOINPUT" property="whoinput" jdbcType="VARCHAR" />
+    <result column="WHODEL" property="whodel" jdbcType="VARCHAR" />
+    <result column="PICPATH" property="picpath" jdbcType="VARCHAR" />
+    <result column="YPIC" property="ypic" jdbcType="CHAR" />
+    <result column="REPEATTIMES" property="repeattimes" jdbcType="DECIMAL" />
+    <result column="SUPCATID" property="supcatid" jdbcType="VARCHAR" />
+    <result column="L3SUPCATID" property="l3supcatid" jdbcType="CHAR" />
+    <result column="COMMEND" property="commend" jdbcType="CHAR" />
+    <result column="UNCHECKED" property="unchecked" jdbcType="CHAR" />
+    <result column="DOWNCOR_ID" property="downcorId" jdbcType="DECIMAL" />
+    <result column="PRICERANGE" property="pricerange" jdbcType="DECIMAL" />
+    <result column="FIRSTCHECKED" property="firstchecked" jdbcType="CHAR" />
+    <result column="MINORDERNUM" property="minordernum" jdbcType="DECIMAL" />
+    <result column="PRICECHANGE" property="pricechange" jdbcType="CHAR" />
+    <result column="PRICEDIFFERENCE" property="pricedifference" jdbcType="FLOAT" />
+    <result column="YVIEW360" property="yview360" jdbcType="CHAR" />
+    <result column="PREVIEW360PATH" property="preview360path" jdbcType="VARCHAR" />
+    <result column="VIEW360PATH" property="view360path" jdbcType="VARCHAR" />
+    <result column="ISANYMSBUY" property="isanymsbuy" jdbcType="DECIMAL" />
+    <result column="ISCORONLINEREFUSE" property="iscoronlinerefuse" jdbcType="CHAR" />
+    <result column="TIMELIMIT" property="timelimit" jdbcType="DECIMAL" />
+    <result column="ISSENDMAIL" property="issendmail" jdbcType="CHAR" />
+    <result column="ISCONTACTED" property="iscontacted" jdbcType="CHAR" />
+    <result column="ACTID" property="actid" jdbcType="DECIMAL" />
+    <result column="ACTMODIFYDATE" property="actmodifydate" jdbcType="DATE" />
+    <result column="SHOWSTATE" property="showstate" jdbcType="DECIMAL" />
+    <result column="PUBTYPE" property="pubtype" jdbcType="DECIMAL" />
+    <result column="OLD_COMPLETE" property="oldComplete" jdbcType="DECIMAL" />
+    <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
+    <result column="SERIESID" property="seriesid" jdbcType="DECIMAL" />
+    <result column="MATERIAL" property="material" jdbcType="VARCHAR" />
+    <result column="QUALIFIC" property="qualific" jdbcType="VARCHAR" />
+    <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+    <result column="IS_SUPPORT_TRADE" property="isSupportTrade" jdbcType="CHAR" />
+    <result column="STAR" property="star" jdbcType="CHAR" />
+    <result column="PRICETYPE" property="pricetype" jdbcType="CHAR" />
+    <result column="BUSINTYPE" property="busintype" jdbcType="VARCHAR" />
+    <result column="WEIGHT_KG" property="weightKg" jdbcType="DECIMAL" />
+    <result column="PICMEMO" property="picmemo" jdbcType="VARCHAR" />
+    <result column="STORE" property="store" jdbcType="VARCHAR" />
+    <result column="BUSIN_MARK" property="businMark" jdbcType="CHAR" />
+    <result column="TRANSFER_DATE" property="transferDate" jdbcType="DATE" />
+    <result column="ISFORCAR" property="isforcar" jdbcType="CHAR" />
+    <result column="BUSIN_SOURCE" property="businSource" jdbcType="CHAR" />
+    <result column="ISUNDERSHELF" property="isundershelf" jdbcType="CHAR" />
+    <result column="PFLAG" property="pflag" jdbcType="CHAR" />
+    <result column="SORTNUM" property="sortnum" jdbcType="CHAR" />
+    <result column="ORIGNPUBDATE" property="orignpubdate" jdbcType="DATE" />
+    <result column="CONTACTOR" property="contactor" jdbcType="VARCHAR" />
+    <result column="O_AREAID" property="oAreaid" jdbcType="CHAR" />
+    <result column="O_CLSID" property="oClsid" jdbcType="VARCHAR" />
+    <result column="COR_SORTVALUE" property="corSortvalue" jdbcType="DECIMAL" />
+    <result column="SERVICEFLAG" property="serviceflag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BC_ID, INDIVIDFLAG, SORTTAG, TITLE, TYPE, BRANDID, KEYWORD, KEYWORD2, KEYWORD3, LPACKAGE, 
+    DELIVER, TRANSPORT, UNIT, VALIDDATE, PUBDATE, PROVIDERID, USERNAME, CHECKED, CHECKDATE, 
+    CHECKMAN, ENDDATE, NUM, OPERSTATE, STATES, ORIGNPCI_ID, ORIGN, YREPEATED, SEARCHSTATE, 
+    DELDATE, UPDATETIME, WHOUPDATE, WHOINPUT, WHODEL, PICPATH, YPIC, REPEATTIMES, SUPCATID, 
+    L3SUPCATID, COMMEND, UNCHECKED, DOWNCOR_ID, PRICERANGE, FIRSTCHECKED, MINORDERNUM, 
+    PRICECHANGE, PRICEDIFFERENCE, YVIEW360, PREVIEW360PATH, VIEW360PATH, ISANYMSBUY, 
+    ISCORONLINEREFUSE, TIMELIMIT, ISSENDMAIL, ISCONTACTED, ACTID, ACTMODIFYDATE, SHOWSTATE, 
+    PUBTYPE, OLD_COMPLETE, CREATEDATE, SERIESID, MATERIAL, QUALIFIC, SOURCE, IS_SUPPORT_TRADE, 
+    STAR, PRICETYPE, BUSINTYPE, WEIGHT_KG, PICMEMO, STORE, BUSIN_MARK, TRANSFER_DATE, 
+    ISFORCAR, BUSIN_SOURCE, ISUNDERSHELF, PFLAG, SORTNUM, ORIGNPUBDATE, CONTACTOR, O_AREAID, 
+    O_CLSID, COR_SORTVALUE, SERVICEFLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from ON_BUSIN_CHANCE
+    where BC_ID = #{bcId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from ON_BUSIN_CHANCE
+    where BC_ID = #{bcId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.OnBusinChance" >
+    insert into ON_BUSIN_CHANCE (BC_ID, INDIVIDFLAG, SORTTAG, 
+      TITLE, TYPE, BRANDID, 
+      KEYWORD, KEYWORD2, KEYWORD3, 
+      LPACKAGE, DELIVER, TRANSPORT, 
+      UNIT, VALIDDATE, PUBDATE, 
+      PROVIDERID, USERNAME, CHECKED, 
+      CHECKDATE, CHECKMAN, ENDDATE, 
+      NUM, OPERSTATE, STATES, ORIGNPCI_ID, 
+      ORIGN, YREPEATED, SEARCHSTATE, 
+      DELDATE, UPDATETIME, WHOUPDATE, 
+      WHOINPUT, WHODEL, PICPATH, 
+      YPIC, REPEATTIMES, SUPCATID, 
+      L3SUPCATID, COMMEND, UNCHECKED, 
+      DOWNCOR_ID, PRICERANGE, FIRSTCHECKED, 
+      MINORDERNUM, PRICECHANGE, PRICEDIFFERENCE, 
+      YVIEW360, PREVIEW360PATH, VIEW360PATH, 
+      ISANYMSBUY, ISCORONLINEREFUSE, TIMELIMIT, 
+      ISSENDMAIL, ISCONTACTED, ACTID, 
+      ACTMODIFYDATE, SHOWSTATE, PUBTYPE, 
+      OLD_COMPLETE, CREATEDATE, SERIESID, 
+      MATERIAL, QUALIFIC, SOURCE, 
+      IS_SUPPORT_TRADE, STAR, PRICETYPE, 
+      BUSINTYPE, WEIGHT_KG, PICMEMO, 
+      STORE, BUSIN_MARK, TRANSFER_DATE, 
+      ISFORCAR, BUSIN_SOURCE, ISUNDERSHELF, 
+      PFLAG, SORTNUM, ORIGNPUBDATE, 
+      CONTACTOR, O_AREAID, O_CLSID, 
+      COR_SORTVALUE, SERVICEFLAG)
+    values (#{bcId,jdbcType=DECIMAL}, #{individflag,jdbcType=CHAR}, #{sorttag,jdbcType=CHAR}, 
+      #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{brandid,jdbcType=DECIMAL}, 
+      #{keyword,jdbcType=VARCHAR}, #{keyword2,jdbcType=VARCHAR}, #{keyword3,jdbcType=VARCHAR}, 
+      #{lpackage,jdbcType=VARCHAR}, #{deliver,jdbcType=VARCHAR}, #{transport,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{validdate,jdbcType=DECIMAL}, #{pubdate,jdbcType=DATE}, 
+      #{providerid,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, #{checked,jdbcType=CHAR}, 
+      #{checkdate,jdbcType=DATE}, #{checkman,jdbcType=VARCHAR}, #{enddate,jdbcType=DATE}, 
+      #{num,jdbcType=VARCHAR}, #{operstate,jdbcType=CHAR}, #{states,jdbcType=CHAR}, #{orignpciId,jdbcType=DECIMAL}, 
+      #{orign,jdbcType=VARCHAR}, #{yrepeated,jdbcType=CHAR}, #{searchstate,jdbcType=CHAR}, 
+      #{deldate,jdbcType=DATE}, #{updatetime,jdbcType=DATE}, #{whoupdate,jdbcType=VARCHAR}, 
+      #{whoinput,jdbcType=VARCHAR}, #{whodel,jdbcType=VARCHAR}, #{picpath,jdbcType=VARCHAR}, 
+      #{ypic,jdbcType=CHAR}, #{repeattimes,jdbcType=DECIMAL}, #{supcatid,jdbcType=VARCHAR}, 
+      #{l3supcatid,jdbcType=CHAR}, #{commend,jdbcType=CHAR}, #{unchecked,jdbcType=CHAR}, 
+      #{downcorId,jdbcType=DECIMAL}, #{pricerange,jdbcType=DECIMAL}, #{firstchecked,jdbcType=CHAR}, 
+      #{minordernum,jdbcType=DECIMAL}, #{pricechange,jdbcType=CHAR}, #{pricedifference,jdbcType=FLOAT}, 
+      #{yview360,jdbcType=CHAR}, #{preview360path,jdbcType=VARCHAR}, #{view360path,jdbcType=VARCHAR}, 
+      #{isanymsbuy,jdbcType=DECIMAL}, #{iscoronlinerefuse,jdbcType=CHAR}, #{timelimit,jdbcType=DECIMAL}, 
+      #{issendmail,jdbcType=CHAR}, #{iscontacted,jdbcType=CHAR}, #{actid,jdbcType=DECIMAL}, 
+      #{actmodifydate,jdbcType=DATE}, #{showstate,jdbcType=DECIMAL}, #{pubtype,jdbcType=DECIMAL}, 
+      #{oldComplete,jdbcType=DECIMAL}, #{createdate,jdbcType=DATE}, #{seriesid,jdbcType=DECIMAL}, 
+      #{material,jdbcType=VARCHAR}, #{qualific,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{isSupportTrade,jdbcType=CHAR}, #{star,jdbcType=CHAR}, #{pricetype,jdbcType=CHAR}, 
+      #{busintype,jdbcType=VARCHAR}, #{weightKg,jdbcType=DECIMAL}, #{picmemo,jdbcType=VARCHAR}, 
+      #{store,jdbcType=VARCHAR}, #{businMark,jdbcType=CHAR}, #{transferDate,jdbcType=DATE}, 
+      #{isforcar,jdbcType=CHAR}, #{businSource,jdbcType=CHAR}, #{isundershelf,jdbcType=CHAR}, 
+      #{pflag,jdbcType=CHAR}, #{sortnum,jdbcType=CHAR}, #{orignpubdate,jdbcType=DATE}, 
+      #{contactor,jdbcType=VARCHAR}, #{oAreaid,jdbcType=CHAR}, #{oClsid,jdbcType=VARCHAR}, 
+      #{corSortvalue,jdbcType=DECIMAL}, #{serviceflag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.OnBusinChance" >
+    insert into ON_BUSIN_CHANCE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="individflag != null" >
+        INDIVIDFLAG,
+      </if>
+      <if test="sorttag != null" >
+        SORTTAG,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="brandid != null" >
+        BRANDID,
+      </if>
+      <if test="keyword != null" >
+        KEYWORD,
+      </if>
+      <if test="keyword2 != null" >
+        KEYWORD2,
+      </if>
+      <if test="keyword3 != null" >
+        KEYWORD3,
+      </if>
+      <if test="lpackage != null" >
+        LPACKAGE,
+      </if>
+      <if test="deliver != null" >
+        DELIVER,
+      </if>
+      <if test="transport != null" >
+        TRANSPORT,
+      </if>
+      <if test="unit != null" >
+        UNIT,
+      </if>
+      <if test="validdate != null" >
+        VALIDDATE,
+      </if>
+      <if test="pubdate != null" >
+        PUBDATE,
+      </if>
+      <if test="providerid != null" >
+        PROVIDERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="checked != null" >
+        CHECKED,
+      </if>
+      <if test="checkdate != null" >
+        CHECKDATE,
+      </if>
+      <if test="checkman != null" >
+        CHECKMAN,
+      </if>
+      <if test="enddate != null" >
+        ENDDATE,
+      </if>
+      <if test="num != null" >
+        NUM,
+      </if>
+      <if test="operstate != null" >
+        OPERSTATE,
+      </if>
+      <if test="states != null" >
+        STATES,
+      </if>
+      <if test="orignpciId != null" >
+        ORIGNPCI_ID,
+      </if>
+      <if test="orign != null" >
+        ORIGN,
+      </if>
+      <if test="yrepeated != null" >
+        YREPEATED,
+      </if>
+      <if test="searchstate != null" >
+        SEARCHSTATE,
+      </if>
+      <if test="deldate != null" >
+        DELDATE,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="whoupdate != null" >
+        WHOUPDATE,
+      </if>
+      <if test="whoinput != null" >
+        WHOINPUT,
+      </if>
+      <if test="whodel != null" >
+        WHODEL,
+      </if>
+      <if test="picpath != null" >
+        PICPATH,
+      </if>
+      <if test="ypic != null" >
+        YPIC,
+      </if>
+      <if test="repeattimes != null" >
+        REPEATTIMES,
+      </if>
+      <if test="supcatid != null" >
+        SUPCATID,
+      </if>
+      <if test="l3supcatid != null" >
+        L3SUPCATID,
+      </if>
+      <if test="commend != null" >
+        COMMEND,
+      </if>
+      <if test="unchecked != null" >
+        UNCHECKED,
+      </if>
+      <if test="downcorId != null" >
+        DOWNCOR_ID,
+      </if>
+      <if test="pricerange != null" >
+        PRICERANGE,
+      </if>
+      <if test="firstchecked != null" >
+        FIRSTCHECKED,
+      </if>
+      <if test="minordernum != null" >
+        MINORDERNUM,
+      </if>
+      <if test="pricechange != null" >
+        PRICECHANGE,
+      </if>
+      <if test="pricedifference != null" >
+        PRICEDIFFERENCE,
+      </if>
+      <if test="yview360 != null" >
+        YVIEW360,
+      </if>
+      <if test="preview360path != null" >
+        PREVIEW360PATH,
+      </if>
+      <if test="view360path != null" >
+        VIEW360PATH,
+      </if>
+      <if test="isanymsbuy != null" >
+        ISANYMSBUY,
+      </if>
+      <if test="iscoronlinerefuse != null" >
+        ISCORONLINEREFUSE,
+      </if>
+      <if test="timelimit != null" >
+        TIMELIMIT,
+      </if>
+      <if test="issendmail != null" >
+        ISSENDMAIL,
+      </if>
+      <if test="iscontacted != null" >
+        ISCONTACTED,
+      </if>
+      <if test="actid != null" >
+        ACTID,
+      </if>
+      <if test="actmodifydate != null" >
+        ACTMODIFYDATE,
+      </if>
+      <if test="showstate != null" >
+        SHOWSTATE,
+      </if>
+      <if test="pubtype != null" >
+        PUBTYPE,
+      </if>
+      <if test="oldComplete != null" >
+        OLD_COMPLETE,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="seriesid != null" >
+        SERIESID,
+      </if>
+      <if test="material != null" >
+        MATERIAL,
+      </if>
+      <if test="qualific != null" >
+        QUALIFIC,
+      </if>
+      <if test="source != null" >
+        SOURCE,
+      </if>
+      <if test="isSupportTrade != null" >
+        IS_SUPPORT_TRADE,
+      </if>
+      <if test="star != null" >
+        STAR,
+      </if>
+      <if test="pricetype != null" >
+        PRICETYPE,
+      </if>
+      <if test="busintype != null" >
+        BUSINTYPE,
+      </if>
+      <if test="weightKg != null" >
+        WEIGHT_KG,
+      </if>
+      <if test="picmemo != null" >
+        PICMEMO,
+      </if>
+      <if test="store != null" >
+        STORE,
+      </if>
+      <if test="businMark != null" >
+        BUSIN_MARK,
+      </if>
+      <if test="transferDate != null" >
+        TRANSFER_DATE,
+      </if>
+      <if test="isforcar != null" >
+        ISFORCAR,
+      </if>
+      <if test="businSource != null" >
+        BUSIN_SOURCE,
+      </if>
+      <if test="isundershelf != null" >
+        ISUNDERSHELF,
+      </if>
+      <if test="pflag != null" >
+        PFLAG,
+      </if>
+      <if test="sortnum != null" >
+        SORTNUM,
+      </if>
+      <if test="orignpubdate != null" >
+        ORIGNPUBDATE,
+      </if>
+      <if test="contactor != null" >
+        CONTACTOR,
+      </if>
+      <if test="oAreaid != null" >
+        O_AREAID,
+      </if>
+      <if test="oClsid != null" >
+        O_CLSID,
+      </if>
+      <if test="corSortvalue != null" >
+        COR_SORTVALUE,
+      </if>
+      <if test="serviceflag != null" >
+        SERVICEFLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="individflag != null" >
+        #{individflag,jdbcType=CHAR},
+      </if>
+      <if test="sorttag != null" >
+        #{sorttag,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="brandid != null" >
+        #{brandid,jdbcType=DECIMAL},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword2 != null" >
+        #{keyword2,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword3 != null" >
+        #{keyword3,jdbcType=VARCHAR},
+      </if>
+      <if test="lpackage != null" >
+        #{lpackage,jdbcType=VARCHAR},
+      </if>
+      <if test="deliver != null" >
+        #{deliver,jdbcType=VARCHAR},
+      </if>
+      <if test="transport != null" >
+        #{transport,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="validdate != null" >
+        #{validdate,jdbcType=DECIMAL},
+      </if>
+      <if test="pubdate != null" >
+        #{pubdate,jdbcType=DATE},
+      </if>
+      <if test="providerid != null" >
+        #{providerid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="checked != null" >
+        #{checked,jdbcType=CHAR},
+      </if>
+      <if test="checkdate != null" >
+        #{checkdate,jdbcType=DATE},
+      </if>
+      <if test="checkman != null" >
+        #{checkman,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="operstate != null" >
+        #{operstate,jdbcType=CHAR},
+      </if>
+      <if test="states != null" >
+        #{states,jdbcType=CHAR},
+      </if>
+      <if test="orignpciId != null" >
+        #{orignpciId,jdbcType=DECIMAL},
+      </if>
+      <if test="orign != null" >
+        #{orign,jdbcType=VARCHAR},
+      </if>
+      <if test="yrepeated != null" >
+        #{yrepeated,jdbcType=CHAR},
+      </if>
+      <if test="searchstate != null" >
+        #{searchstate,jdbcType=CHAR},
+      </if>
+      <if test="deldate != null" >
+        #{deldate,jdbcType=DATE},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="whoupdate != null" >
+        #{whoupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="whoinput != null" >
+        #{whoinput,jdbcType=VARCHAR},
+      </if>
+      <if test="whodel != null" >
+        #{whodel,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="ypic != null" >
+        #{ypic,jdbcType=CHAR},
+      </if>
+      <if test="repeattimes != null" >
+        #{repeattimes,jdbcType=DECIMAL},
+      </if>
+      <if test="supcatid != null" >
+        #{supcatid,jdbcType=VARCHAR},
+      </if>
+      <if test="l3supcatid != null" >
+        #{l3supcatid,jdbcType=CHAR},
+      </if>
+      <if test="commend != null" >
+        #{commend,jdbcType=CHAR},
+      </if>
+      <if test="unchecked != null" >
+        #{unchecked,jdbcType=CHAR},
+      </if>
+      <if test="downcorId != null" >
+        #{downcorId,jdbcType=DECIMAL},
+      </if>
+      <if test="pricerange != null" >
+        #{pricerange,jdbcType=DECIMAL},
+      </if>
+      <if test="firstchecked != null" >
+        #{firstchecked,jdbcType=CHAR},
+      </if>
+      <if test="minordernum != null" >
+        #{minordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="pricechange != null" >
+        #{pricechange,jdbcType=CHAR},
+      </if>
+      <if test="pricedifference != null" >
+        #{pricedifference,jdbcType=FLOAT},
+      </if>
+      <if test="yview360 != null" >
+        #{yview360,jdbcType=CHAR},
+      </if>
+      <if test="preview360path != null" >
+        #{preview360path,jdbcType=VARCHAR},
+      </if>
+      <if test="view360path != null" >
+        #{view360path,jdbcType=VARCHAR},
+      </if>
+      <if test="isanymsbuy != null" >
+        #{isanymsbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="iscoronlinerefuse != null" >
+        #{iscoronlinerefuse,jdbcType=CHAR},
+      </if>
+      <if test="timelimit != null" >
+        #{timelimit,jdbcType=DECIMAL},
+      </if>
+      <if test="issendmail != null" >
+        #{issendmail,jdbcType=CHAR},
+      </if>
+      <if test="iscontacted != null" >
+        #{iscontacted,jdbcType=CHAR},
+      </if>
+      <if test="actid != null" >
+        #{actid,jdbcType=DECIMAL},
+      </if>
+      <if test="actmodifydate != null" >
+        #{actmodifydate,jdbcType=DATE},
+      </if>
+      <if test="showstate != null" >
+        #{showstate,jdbcType=DECIMAL},
+      </if>
+      <if test="pubtype != null" >
+        #{pubtype,jdbcType=DECIMAL},
+      </if>
+      <if test="oldComplete != null" >
+        #{oldComplete,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="seriesid != null" >
+        #{seriesid,jdbcType=DECIMAL},
+      </if>
+      <if test="material != null" >
+        #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="qualific != null" >
+        #{qualific,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupportTrade != null" >
+        #{isSupportTrade,jdbcType=CHAR},
+      </if>
+      <if test="star != null" >
+        #{star,jdbcType=CHAR},
+      </if>
+      <if test="pricetype != null" >
+        #{pricetype,jdbcType=CHAR},
+      </if>
+      <if test="busintype != null" >
+        #{busintype,jdbcType=VARCHAR},
+      </if>
+      <if test="weightKg != null" >
+        #{weightKg,jdbcType=DECIMAL},
+      </if>
+      <if test="picmemo != null" >
+        #{picmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="store != null" >
+        #{store,jdbcType=VARCHAR},
+      </if>
+      <if test="businMark != null" >
+        #{businMark,jdbcType=CHAR},
+      </if>
+      <if test="transferDate != null" >
+        #{transferDate,jdbcType=DATE},
+      </if>
+      <if test="isforcar != null" >
+        #{isforcar,jdbcType=CHAR},
+      </if>
+      <if test="businSource != null" >
+        #{businSource,jdbcType=CHAR},
+      </if>
+      <if test="isundershelf != null" >
+        #{isundershelf,jdbcType=CHAR},
+      </if>
+      <if test="pflag != null" >
+        #{pflag,jdbcType=CHAR},
+      </if>
+      <if test="sortnum != null" >
+        #{sortnum,jdbcType=CHAR},
+      </if>
+      <if test="orignpubdate != null" >
+        #{orignpubdate,jdbcType=DATE},
+      </if>
+      <if test="contactor != null" >
+        #{contactor,jdbcType=VARCHAR},
+      </if>
+      <if test="oAreaid != null" >
+        #{oAreaid,jdbcType=CHAR},
+      </if>
+      <if test="oClsid != null" >
+        #{oClsid,jdbcType=VARCHAR},
+      </if>
+      <if test="corSortvalue != null" >
+        #{corSortvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceflag != null" >
+        #{serviceflag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.OnBusinChance" >
+    update ON_BUSIN_CHANCE
+    <set >
+      <if test="individflag != null" >
+        INDIVIDFLAG = #{individflag,jdbcType=CHAR},
+      </if>
+      <if test="sorttag != null" >
+        SORTTAG = #{sorttag,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="brandid != null" >
+        BRANDID = #{brandid,jdbcType=DECIMAL},
+      </if>
+      <if test="keyword != null" >
+        KEYWORD = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword2 != null" >
+        KEYWORD2 = #{keyword2,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword3 != null" >
+        KEYWORD3 = #{keyword3,jdbcType=VARCHAR},
+      </if>
+      <if test="lpackage != null" >
+        LPACKAGE = #{lpackage,jdbcType=VARCHAR},
+      </if>
+      <if test="deliver != null" >
+        DELIVER = #{deliver,jdbcType=VARCHAR},
+      </if>
+      <if test="transport != null" >
+        TRANSPORT = #{transport,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="validdate != null" >
+        VALIDDATE = #{validdate,jdbcType=DECIMAL},
+      </if>
+      <if test="pubdate != null" >
+        PUBDATE = #{pubdate,jdbcType=DATE},
+      </if>
+      <if test="providerid != null" >
+        PROVIDERID = #{providerid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="checked != null" >
+        CHECKED = #{checked,jdbcType=CHAR},
+      </if>
+      <if test="checkdate != null" >
+        CHECKDATE = #{checkdate,jdbcType=DATE},
+      </if>
+      <if test="checkman != null" >
+        CHECKMAN = #{checkman,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        ENDDATE = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="operstate != null" >
+        OPERSTATE = #{operstate,jdbcType=CHAR},
+      </if>
+      <if test="states != null" >
+        STATES = #{states,jdbcType=CHAR},
+      </if>
+      <if test="orignpciId != null" >
+        ORIGNPCI_ID = #{orignpciId,jdbcType=DECIMAL},
+      </if>
+      <if test="orign != null" >
+        ORIGN = #{orign,jdbcType=VARCHAR},
+      </if>
+      <if test="yrepeated != null" >
+        YREPEATED = #{yrepeated,jdbcType=CHAR},
+      </if>
+      <if test="searchstate != null" >
+        SEARCHSTATE = #{searchstate,jdbcType=CHAR},
+      </if>
+      <if test="deldate != null" >
+        DELDATE = #{deldate,jdbcType=DATE},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="whoupdate != null" >
+        WHOUPDATE = #{whoupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="whoinput != null" >
+        WHOINPUT = #{whoinput,jdbcType=VARCHAR},
+      </if>
+      <if test="whodel != null" >
+        WHODEL = #{whodel,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        PICPATH = #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="ypic != null" >
+        YPIC = #{ypic,jdbcType=CHAR},
+      </if>
+      <if test="repeattimes != null" >
+        REPEATTIMES = #{repeattimes,jdbcType=DECIMAL},
+      </if>
+      <if test="supcatid != null" >
+        SUPCATID = #{supcatid,jdbcType=VARCHAR},
+      </if>
+      <if test="l3supcatid != null" >
+        L3SUPCATID = #{l3supcatid,jdbcType=CHAR},
+      </if>
+      <if test="commend != null" >
+        COMMEND = #{commend,jdbcType=CHAR},
+      </if>
+      <if test="unchecked != null" >
+        UNCHECKED = #{unchecked,jdbcType=CHAR},
+      </if>
+      <if test="downcorId != null" >
+        DOWNCOR_ID = #{downcorId,jdbcType=DECIMAL},
+      </if>
+      <if test="pricerange != null" >
+        PRICERANGE = #{pricerange,jdbcType=DECIMAL},
+      </if>
+      <if test="firstchecked != null" >
+        FIRSTCHECKED = #{firstchecked,jdbcType=CHAR},
+      </if>
+      <if test="minordernum != null" >
+        MINORDERNUM = #{minordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="pricechange != null" >
+        PRICECHANGE = #{pricechange,jdbcType=CHAR},
+      </if>
+      <if test="pricedifference != null" >
+        PRICEDIFFERENCE = #{pricedifference,jdbcType=FLOAT},
+      </if>
+      <if test="yview360 != null" >
+        YVIEW360 = #{yview360,jdbcType=CHAR},
+      </if>
+      <if test="preview360path != null" >
+        PREVIEW360PATH = #{preview360path,jdbcType=VARCHAR},
+      </if>
+      <if test="view360path != null" >
+        VIEW360PATH = #{view360path,jdbcType=VARCHAR},
+      </if>
+      <if test="isanymsbuy != null" >
+        ISANYMSBUY = #{isanymsbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="iscoronlinerefuse != null" >
+        ISCORONLINEREFUSE = #{iscoronlinerefuse,jdbcType=CHAR},
+      </if>
+      <if test="timelimit != null" >
+        TIMELIMIT = #{timelimit,jdbcType=DECIMAL},
+      </if>
+      <if test="issendmail != null" >
+        ISSENDMAIL = #{issendmail,jdbcType=CHAR},
+      </if>
+      <if test="iscontacted != null" >
+        ISCONTACTED = #{iscontacted,jdbcType=CHAR},
+      </if>
+      <if test="actid != null" >
+        ACTID = #{actid,jdbcType=DECIMAL},
+      </if>
+      <if test="actmodifydate != null" >
+        ACTMODIFYDATE = #{actmodifydate,jdbcType=DATE},
+      </if>
+      <if test="showstate != null" >
+        SHOWSTATE = #{showstate,jdbcType=DECIMAL},
+      </if>
+      <if test="pubtype != null" >
+        PUBTYPE = #{pubtype,jdbcType=DECIMAL},
+      </if>
+      <if test="oldComplete != null" >
+        OLD_COMPLETE = #{oldComplete,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="seriesid != null" >
+        SERIESID = #{seriesid,jdbcType=DECIMAL},
+      </if>
+      <if test="material != null" >
+        MATERIAL = #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="qualific != null" >
+        QUALIFIC = #{qualific,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupportTrade != null" >
+        IS_SUPPORT_TRADE = #{isSupportTrade,jdbcType=CHAR},
+      </if>
+      <if test="star != null" >
+        STAR = #{star,jdbcType=CHAR},
+      </if>
+      <if test="pricetype != null" >
+        PRICETYPE = #{pricetype,jdbcType=CHAR},
+      </if>
+      <if test="busintype != null" >
+        BUSINTYPE = #{busintype,jdbcType=VARCHAR},
+      </if>
+      <if test="weightKg != null" >
+        WEIGHT_KG = #{weightKg,jdbcType=DECIMAL},
+      </if>
+      <if test="picmemo != null" >
+        PICMEMO = #{picmemo,jdbcType=VARCHAR},
+      </if>
+      <if test="store != null" >
+        STORE = #{store,jdbcType=VARCHAR},
+      </if>
+      <if test="businMark != null" >
+        BUSIN_MARK = #{businMark,jdbcType=CHAR},
+      </if>
+      <if test="transferDate != null" >
+        TRANSFER_DATE = #{transferDate,jdbcType=DATE},
+      </if>
+      <if test="isforcar != null" >
+        ISFORCAR = #{isforcar,jdbcType=CHAR},
+      </if>
+      <if test="businSource != null" >
+        BUSIN_SOURCE = #{businSource,jdbcType=CHAR},
+      </if>
+      <if test="isundershelf != null" >
+        ISUNDERSHELF = #{isundershelf,jdbcType=CHAR},
+      </if>
+      <if test="pflag != null" >
+        PFLAG = #{pflag,jdbcType=CHAR},
+      </if>
+      <if test="sortnum != null" >
+        SORTNUM = #{sortnum,jdbcType=CHAR},
+      </if>
+      <if test="orignpubdate != null" >
+        ORIGNPUBDATE = #{orignpubdate,jdbcType=DATE},
+      </if>
+      <if test="contactor != null" >
+        CONTACTOR = #{contactor,jdbcType=VARCHAR},
+      </if>
+      <if test="oAreaid != null" >
+        O_AREAID = #{oAreaid,jdbcType=CHAR},
+      </if>
+      <if test="oClsid != null" >
+        O_CLSID = #{oClsid,jdbcType=VARCHAR},
+      </if>
+      <if test="corSortvalue != null" >
+        COR_SORTVALUE = #{corSortvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceflag != null" >
+        SERVICEFLAG = #{serviceflag,jdbcType=CHAR},
+      </if>
+    </set>
+    where BC_ID = #{bcId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.OnBusinChance" >
+    update ON_BUSIN_CHANCE
+    set INDIVIDFLAG = #{individflag,jdbcType=CHAR},
+      SORTTAG = #{sorttag,jdbcType=CHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      BRANDID = #{brandid,jdbcType=DECIMAL},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      KEYWORD2 = #{keyword2,jdbcType=VARCHAR},
+      KEYWORD3 = #{keyword3,jdbcType=VARCHAR},
+      LPACKAGE = #{lpackage,jdbcType=VARCHAR},
+      DELIVER = #{deliver,jdbcType=VARCHAR},
+      TRANSPORT = #{transport,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      VALIDDATE = #{validdate,jdbcType=DECIMAL},
+      PUBDATE = #{pubdate,jdbcType=DATE},
+      PROVIDERID = #{providerid,jdbcType=DECIMAL},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      CHECKED = #{checked,jdbcType=CHAR},
+      CHECKDATE = #{checkdate,jdbcType=DATE},
+      CHECKMAN = #{checkman,jdbcType=VARCHAR},
+      ENDDATE = #{enddate,jdbcType=DATE},
+      NUM = #{num,jdbcType=VARCHAR},
+      OPERSTATE = #{operstate,jdbcType=CHAR},
+      STATES = #{states,jdbcType=CHAR},
+      ORIGNPCI_ID = #{orignpciId,jdbcType=DECIMAL},
+      ORIGN = #{orign,jdbcType=VARCHAR},
+      YREPEATED = #{yrepeated,jdbcType=CHAR},
+      SEARCHSTATE = #{searchstate,jdbcType=CHAR},
+      DELDATE = #{deldate,jdbcType=DATE},
+      UPDATETIME = #{updatetime,jdbcType=DATE},
+      WHOUPDATE = #{whoupdate,jdbcType=VARCHAR},
+      WHOINPUT = #{whoinput,jdbcType=VARCHAR},
+      WHODEL = #{whodel,jdbcType=VARCHAR},
+      PICPATH = #{picpath,jdbcType=VARCHAR},
+      YPIC = #{ypic,jdbcType=CHAR},
+      REPEATTIMES = #{repeattimes,jdbcType=DECIMAL},
+      SUPCATID = #{supcatid,jdbcType=VARCHAR},
+      L3SUPCATID = #{l3supcatid,jdbcType=CHAR},
+      COMMEND = #{commend,jdbcType=CHAR},
+      UNCHECKED = #{unchecked,jdbcType=CHAR},
+      DOWNCOR_ID = #{downcorId,jdbcType=DECIMAL},
+      PRICERANGE = #{pricerange,jdbcType=DECIMAL},
+      FIRSTCHECKED = #{firstchecked,jdbcType=CHAR},
+      MINORDERNUM = #{minordernum,jdbcType=DECIMAL},
+      PRICECHANGE = #{pricechange,jdbcType=CHAR},
+      PRICEDIFFERENCE = #{pricedifference,jdbcType=FLOAT},
+      YVIEW360 = #{yview360,jdbcType=CHAR},
+      PREVIEW360PATH = #{preview360path,jdbcType=VARCHAR},
+      VIEW360PATH = #{view360path,jdbcType=VARCHAR},
+      ISANYMSBUY = #{isanymsbuy,jdbcType=DECIMAL},
+      ISCORONLINEREFUSE = #{iscoronlinerefuse,jdbcType=CHAR},
+      TIMELIMIT = #{timelimit,jdbcType=DECIMAL},
+      ISSENDMAIL = #{issendmail,jdbcType=CHAR},
+      ISCONTACTED = #{iscontacted,jdbcType=CHAR},
+      ACTID = #{actid,jdbcType=DECIMAL},
+      ACTMODIFYDATE = #{actmodifydate,jdbcType=DATE},
+      SHOWSTATE = #{showstate,jdbcType=DECIMAL},
+      PUBTYPE = #{pubtype,jdbcType=DECIMAL},
+      OLD_COMPLETE = #{oldComplete,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=DATE},
+      SERIESID = #{seriesid,jdbcType=DECIMAL},
+      MATERIAL = #{material,jdbcType=VARCHAR},
+      QUALIFIC = #{qualific,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      IS_SUPPORT_TRADE = #{isSupportTrade,jdbcType=CHAR},
+      STAR = #{star,jdbcType=CHAR},
+      PRICETYPE = #{pricetype,jdbcType=CHAR},
+      BUSINTYPE = #{busintype,jdbcType=VARCHAR},
+      WEIGHT_KG = #{weightKg,jdbcType=DECIMAL},
+      PICMEMO = #{picmemo,jdbcType=VARCHAR},
+      STORE = #{store,jdbcType=VARCHAR},
+      BUSIN_MARK = #{businMark,jdbcType=CHAR},
+      TRANSFER_DATE = #{transferDate,jdbcType=DATE},
+      ISFORCAR = #{isforcar,jdbcType=CHAR},
+      BUSIN_SOURCE = #{businSource,jdbcType=CHAR},
+      ISUNDERSHELF = #{isundershelf,jdbcType=CHAR},
+      PFLAG = #{pflag,jdbcType=CHAR},
+      SORTNUM = #{sortnum,jdbcType=CHAR},
+      ORIGNPUBDATE = #{orignpubdate,jdbcType=DATE},
+      CONTACTOR = #{contactor,jdbcType=VARCHAR},
+      O_AREAID = #{oAreaid,jdbcType=CHAR},
+      O_CLSID = #{oClsid,jdbcType=VARCHAR},
+      COR_SORTVALUE = #{corSortvalue,jdbcType=DECIMAL},
+      SERVICEFLAG = #{serviceflag,jdbcType=CHAR}
+    where BC_ID = #{bcId,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="getOnBusinChancePageList" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from ON_BUSIN_CHANCE
+    where 1=1
+    <if test="providerid != null and providerid > 0">
+    	and providerid=#{providerid}
+    </if>
+    <if test="titleKeyword != null and titleKeyword != ''">
+    	and title like '%'||#{titleKeyword}||'%'
+    </if>
+  </select>
+  
+  <select id="selectByProviderIdAndBcid" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from ON_BUSIN_CHANCE
+    where PROVIDERID = #{providerid,jdbcType=DECIMAL} and BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="corPubInfoNum" parameterType="java.util.Map" resultType="int">
+    select count(1) from on_busin_chance a where a.states='0' and a.providerid=#{providerid} and
+      ((a.checked='0' and a.operstate !='0') or a.checked='1' or (a.checked='2' and a.operstate='1'))
+    and a.enddate>=to_date(#{today},'yyyy-mm-dd')
+  </select>
+
+  <select id="findOnLineBusinCount" parameterType="java.util.Map" resultType="com.hc360.product.po.OnBusinChance">
+    select
+    <include refid="Base_Column_List" />
+    from on_busin_chance a where a.states='0' and a.providerid=#{providerid} and a.showstate = '1' and a.serviceflag is null
+      and (isundershelf='0' or isundershelf is null)
+      and ((a.checked='0' and a.operstate !='0') or a.checked='1' or (a.checked='2' and a.operstate='1')) and a.sorttag='0'
+      and a.enddate>=to_date(#{today},'yyyy-mm-dd')
+  </select>
+
+  <select id="findPastBusinCount" parameterType="java.util.Map" resultType="com.hc360.product.po.OnBusinChance">
+    select
+    <include refid="Base_Column_List" />
+    from on_busin_chance a where a.states='0' and a.providerid=#{providerid} and a.showstate = '1' and a.serviceflag is null
+      and (isundershelf='0' or isundershelf is null)  and ((a.checked='0' and a.operstate !='0') or a.checked='1' or (a.checked='2' and a.operstate='1'))
+      and a.sorttag='0' and a.enddate &lt; to_date(#{today},'yyyy-mm-dd') and a.checked='1'
+  </select>
+
+  <select id="findBusinLimit" parameterType="com.hc360.product.vo.BusinLimitParam" resultType="int">
+      select count(1) from (SELECT a.bc_id FROM busin_chance a where a.providerid = #{providerId}
+          <if test="state != null and state != ''">and a.states = #{state}</if>
+          <if test="supcatid != null and supcatid != ''"> and a.supcatid = #{supcatid}</if>
+          <if test="showstate != null and showstate != ''"> and a.showstate = #{showstate}</if>
+          <if test="sorttag != null and sorttag != ''"> and a.sorttag = #{sorttag}</if>
+          <if test="serviceflag == '1'"> and a.serviceflag = '1'</if>
+          <if test="serviceflag != '1'"> and a.serviceflag is null</if>
+      UNION
+      SELECT b.bc_id FROM on_busin_chance b where b.providerid = #{providerId}
+          <if test="state != null and state != ''"> and b.states = #{state}</if>
+          <if test="supcatid != null and supcatid != ''"> and b.supcatid = #{supcatid}</if>
+          <if test="showstate != null and showstate != ''"> and b.showstate = #{showstate}</if>
+          <if test="sorttag != null and sorttag != ''"> and b.sorttag = #{sorttag}</if>
+          <if test="serviceflag == '1'"> and b.serviceflag = '1'</if>
+          <if test="serviceflag != '1'"> and b.serviceflag is null</if>
+      )
+  </select>
+
+  <select id="isExistAreaLimit" parameterType="String" resultType="int">
+      select count(1) from sys_area sa where sa.areacode = #{areaId} and sa.busin_sumlimit = '1'
+  </select>
+
+  <select id="findBcNumBySeriesId" parameterType="java.util.Map" resultType="int">
+      select count(*) from (SELECT a.bc_id FROM busin_chance a where a.providerid = #{providerId} and a.states='0'and a.seriesid = #{seriesid}
+        UNION
+      SELECT b.bc_id FROM on_busin_chance b where b.providerid = #{providerId} and b.states='0' and b.seriesid = #{seriesid})
+  </select>
+
+</mapper>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.ProductPriceItemMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.ProductPriceItem" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="SKU_ID" property="skuId" jdbcType="DECIMAL" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="CHAR" />
+    <result column="UNIT_PRICE" property="unitPrice" jdbcType="DECIMAL" />
+    <result column="IMOQ" property="imoq" jdbcType="DECIMAL" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="DATE" />
+    <result column="STATES" property="states" jdbcType="CHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SKU_ID, BC_ID, TYPE, UNIT_PRICE, IMOQ, PUBLISH_TIME, STATES, MODIFY_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCT_PRICE_ITEM
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from PRODUCT_PRICE_ITEM
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.ProductPriceItem" >
+    insert into PRODUCT_PRICE_ITEM (ID, SKU_ID, BC_ID, 
+      TYPE, UNIT_PRICE, IMOQ, 
+      PUBLISH_TIME, STATES, MODIFY_TIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{skuId,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, 
+      #{type,jdbcType=CHAR}, #{unitPrice,jdbcType=DECIMAL}, #{imoq,jdbcType=DECIMAL}, 
+      #{publishTime,jdbcType=DATE}, #{states,jdbcType=CHAR}, #{modifyTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.ProductPriceItem" >
+    insert into PRODUCT_PRICE_ITEM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="skuId != null" >
+        SKU_ID,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="unitPrice != null" >
+        UNIT_PRICE,
+      </if>
+      <if test="imoq != null" >
+        IMOQ,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="states != null" >
+        STATES,
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="skuId != null" >
+        #{skuId,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="unitPrice != null" >
+        #{unitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="imoq != null" >
+        #{imoq,jdbcType=DECIMAL},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="states != null" >
+        #{states,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.ProductPriceItem" >
+    update PRODUCT_PRICE_ITEM
+    <set >
+      <if test="skuId != null" >
+        SKU_ID = #{skuId,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+      <if test="unitPrice != null" >
+        UNIT_PRICE = #{unitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="imoq != null" >
+        IMOQ = #{imoq,jdbcType=DECIMAL},
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="states != null" >
+        STATES = #{states,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.ProductPriceItem" >
+    update PRODUCT_PRICE_ITEM
+    set SKU_ID = #{skuId,jdbcType=DECIMAL},
+      BC_ID = #{bcId,jdbcType=DECIMAL},
+      TYPE = #{type,jdbcType=CHAR},
+      UNIT_PRICE = #{unitPrice,jdbcType=DECIMAL},
+      IMOQ = #{imoq,jdbcType=DECIMAL},
+      PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      STATES = #{states,jdbcType=CHAR},
+      MODIFY_TIME = #{modifyTime,jdbcType=DATE}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByBcid" resultMap="BaseResultMap" parameterType="long" >
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCT_PRICE_ITEM
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByBcid" parameterType="long">
+    delete from PRODUCT_PRICE_ITEM
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </delete>
+
+  <select id="selectSkuPriceByBcid" resultMap="BaseResultMap" parameterType="long" >
+    select
+    <include refid="Base_Column_List" />
+    from PRODUCT_PRICE_ITEM
+    where SKU_ID is not null and SKU_ID != 0 and BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+</mapper>

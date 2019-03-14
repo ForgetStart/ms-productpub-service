@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.BusinFareConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinFareConfig" >
+    <id column="BUSIN_FARE_CONFIG_ID" property="businFareConfigId" jdbcType="DECIMAL" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="CHAR" />
+    <result column="DESCRIBE" property="describe" jdbcType="VARCHAR" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="DATE" />
+    <result column="PUBLISH_MAN" property="publishMan" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="UPDATE_MAN" property="updateMan" jdbcType="VARCHAR" />
+    <result column="FREIGHT_TEMPLATE_ID" property="freightTemplateId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BUSIN_FARE_CONFIG_ID, BC_ID, TYPE, DESCRIBE, PUBLISH_TIME, PUBLISH_MAN, UPDATE_TIME, 
+    UPDATE_MAN, FREIGHT_TEMPLATE_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_FARE_CONFIG
+    where BUSIN_FARE_CONFIG_ID = #{businFareConfigId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from BUSIN_FARE_CONFIG
+    where BUSIN_FARE_CONFIG_ID = #{businFareConfigId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.BusinFareConfig" >
+    insert into BUSIN_FARE_CONFIG (BUSIN_FARE_CONFIG_ID, BC_ID, TYPE, 
+      DESCRIBE, PUBLISH_TIME, PUBLISH_MAN, 
+      UPDATE_TIME, UPDATE_MAN, FREIGHT_TEMPLATE_ID
+      )
+    values (#{businFareConfigId,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, #{type,jdbcType=CHAR}, 
+      #{describe,jdbcType=VARCHAR}, #{publishTime,jdbcType=DATE}, #{publishMan,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateMan,jdbcType=VARCHAR}, #{freightTemplateId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.BusinFareConfig" >
+    insert into BUSIN_FARE_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="businFareConfigId != null" >
+        BUSIN_FARE_CONFIG_ID,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="describe != null" >
+        DESCRIBE,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="publishMan != null" >
+        PUBLISH_MAN,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateMan != null" >
+        UPDATE_MAN,
+      </if>
+      <if test="freightTemplateId != null" >
+        FREIGHT_TEMPLATE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="businFareConfigId != null" >
+        #{businFareConfigId,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="publishMan != null" >
+        #{publishMan,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateMan != null" >
+        #{updateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTemplateId != null" >
+        #{freightTemplateId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.BusinFareConfig" >
+    update BUSIN_FARE_CONFIG
+    <set >
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+      <if test="describe != null" >
+        DESCRIBE = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="publishMan != null" >
+        PUBLISH_MAN = #{publishMan,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateMan != null" >
+        UPDATE_MAN = #{updateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTemplateId != null" >
+        FREIGHT_TEMPLATE_ID = #{freightTemplateId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BUSIN_FARE_CONFIG_ID = #{businFareConfigId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.BusinFareConfig" >
+    update BUSIN_FARE_CONFIG
+    set BC_ID = #{bcId,jdbcType=DECIMAL},
+      TYPE = #{type,jdbcType=CHAR},
+      DESCRIBE = #{describe,jdbcType=VARCHAR},
+      PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      PUBLISH_MAN = #{publishMan,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      UPDATE_MAN = #{updateMan,jdbcType=VARCHAR},
+      FREIGHT_TEMPLATE_ID = #{freightTemplateId,jdbcType=DECIMAL}
+    where BUSIN_FARE_CONFIG_ID = #{businFareConfigId,jdbcType=DECIMAL}
+  </update>
+  
+   <select id="selectByBcid" resultMap="BaseResultMap" parameterType="long" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_FARE_CONFIG
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+</mapper>

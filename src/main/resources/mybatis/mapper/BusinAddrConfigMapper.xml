@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.BusinAddrConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinAddrConfig" >
+    <id column="BUSIN_ADDR_CONFIG_ID" property="businAddrConfigId" jdbcType="DECIMAL" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="SEND_ADDRESS_ID" property="sendAddressId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BUSIN_ADDR_CONFIG_ID, BC_ID, SEND_ADDRESS_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_ADDR_CONFIG
+    where BUSIN_ADDR_CONFIG_ID = #{businAddrConfigId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from BUSIN_ADDR_CONFIG
+    where BUSIN_ADDR_CONFIG_ID = #{businAddrConfigId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.BusinAddrConfig" >
+    insert into BUSIN_ADDR_CONFIG (BUSIN_ADDR_CONFIG_ID, BC_ID, SEND_ADDRESS_ID
+      )
+    values (#{businAddrConfigId,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, #{sendAddressId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.BusinAddrConfig" >
+    insert into BUSIN_ADDR_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="businAddrConfigId != null" >
+        BUSIN_ADDR_CONFIG_ID,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="sendAddressId != null" >
+        SEND_ADDRESS_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="businAddrConfigId != null" >
+        #{businAddrConfigId,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="sendAddressId != null" >
+        #{sendAddressId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.BusinAddrConfig" >
+    update BUSIN_ADDR_CONFIG
+    <set >
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="sendAddressId != null" >
+        SEND_ADDRESS_ID = #{sendAddressId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BUSIN_ADDR_CONFIG_ID = #{businAddrConfigId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.BusinAddrConfig" >
+    update BUSIN_ADDR_CONFIG
+    set BC_ID = #{bcId,jdbcType=DECIMAL},
+      SEND_ADDRESS_ID = #{sendAddressId,jdbcType=DECIMAL}
+    where BUSIN_ADDR_CONFIG_ID = #{businAddrConfigId,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByBcid" resultMap="BaseResultMap" parameterType="long" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_ADDR_CONFIG
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+</mapper>

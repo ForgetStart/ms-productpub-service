@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.BusinLongInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinLongInfo" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="SEARCHINTRODUCE" property="searchintroduce" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, BC_ID, SEARCHINTRODUCE, TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_LONG_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from BUSIN_LONG_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.BusinLongInfo" >
+    insert into BUSIN_LONG_INFO (ID, BC_ID, SEARCHINTRODUCE, 
+      TYPE)
+    values (#{id,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, #{searchintroduce,jdbcType=VARCHAR}, 
+      #{type,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.BusinLongInfo" >
+    insert into BUSIN_LONG_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="searchintroduce != null" >
+        SEARCHINTRODUCE,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="searchintroduce != null" >
+        #{searchintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.BusinLongInfo" >
+    update BUSIN_LONG_INFO
+    <set >
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="searchintroduce != null" >
+        SEARCHINTRODUCE = #{searchintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.BusinLongInfo" >
+    update BUSIN_LONG_INFO
+    set BC_ID = #{bcId,jdbcType=DECIMAL},
+      SEARCHINTRODUCE = #{searchintroduce,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=CHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="getBusinLongInfoByBcid" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select
+    <include refid="Base_Column_List" />
+    from BUSIN_LONG_INFO
+    where BC_ID = #{bcid,jdbcType=DECIMAL} and rownum=1
+  </select>
+</mapper>

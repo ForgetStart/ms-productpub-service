@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc360.product.dao.BusinTempParamMapper">
+    <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinTempParamNew">
+        <id column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="BC_ID" jdbcType="DECIMAL" property="bcid" />
+        <result column="CATEGORY_ID" jdbcType="DECIMAL" property="categoryid" />
+        <result column="TMP_NAME" jdbcType="VARCHAR" property="tmpname" />
+        <result column="TMPVAL_NAME" jdbcType="VARCHAR" property="tmpvalname" />
+        <result column="IS_TEMPITEM" jdbcType="VARCHAR" property="istempitem" />
+        <result column="PUBLISH_TIME" jdbcType="DATE" property="publishtime" />
+        <result column="PROVIDERID" jdbcType="DECIMAL" property="providerid" />
+        <result column="STATES" jdbcType="CHAR" property="states" />
+    </resultMap>
+    <sql id="Base_Column_List">
+      ID, BC_ID, CATEGORY_ID, TMP_NAME, TMPVAL_NAME, IS_TEMPITEM, PUBLISH_TIME, PROVIDERID, STATES
+  </sql>
+
+    <delete id="delTempParamNew" parameterType="java.math.BigDecimal">
+        delete from BUSIN_TEMP_PARAM_NEW where BC_ID=#{bcid,jdbcType=DECIMAL}
+    </delete>
+
+    <delete id="delBatchTempParamNew">
+        delete from BUSIN_TEMP_PARAM_NEW where BC_ID=#{bcid,jdbcType=DECIMAL} and TMP_NAME=#{tmpname,jdbcType=VARCHAR}
+    </delete>
+
+
+   <insert id="saveTempParamNew" parameterType="com.hc360.product.po.BusinTempParamNew" >
+     INSERT INTO BUSIN_TEMP_PARAM_NEW
+    (ID, BC_ID, CATEGORY_ID, TMP_NAME, TMPVAL_NAME, IS_TEMPITEM, PUBLISH_TIME, PROVIDERID, STATES)
+    VALUES
+      (BUSIN_TEMP_PARAM_NEW_SEQ.NEXTVAL,#{bcid,jdbcType=DECIMAL},#{categoryid,jdbcType=DECIMAL},#{tmpname,jdbcType=VARCHAR},
+      #{tmpvalname,jdbcType=VARCHAR}, #{istempitem,jdbcType=VARCHAR}, #{publishtime,jdbcType=DATE},
+      #{providerid,jdbcType=DECIMAL},#{states,jdbcType=VARCHAR}
+      )
+  </insert>
+
+</mapper>

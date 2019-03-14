@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.BusinAttValueMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinAttValue" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="ATTID" property="attid" jdbcType="DECIMAL" />
+    <result column="ATTVALUE" property="attvalue" jdbcType="VARCHAR" />
+    <result column="YDIRECT" property="ydirect" jdbcType="CHAR" />
+    <result column="L3SUPCATID" property="l3supcatid" jdbcType="CHAR" />
+    <result column="YFILL" property="yfill" jdbcType="CHAR" />
+    <result column="ATTNAME" property="attname" jdbcType="VARCHAR" />
+    <result column="UNIT" property="unit" jdbcType="VARCHAR" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="DATE" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="IS_NORMS_PARAM" property="isNormsParam" jdbcType="CHAR" />
+    <result column="PICFILE" property="picfile" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, BC_ID, ATTID, ATTVALUE, YDIRECT, L3SUPCATID, YFILL, ATTNAME, UNIT, PUBLISH_TIME, 
+    MODIFY_TIME, STATUS, IS_NORMS_PARAM, PICFILE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_ATT_VALUE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from BUSIN_ATT_VALUE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.BusinAttValue" >
+    insert into BUSIN_ATT_VALUE (ID, BC_ID, ATTID, 
+      ATTVALUE, YDIRECT, L3SUPCATID, 
+      YFILL, ATTNAME, UNIT, 
+      PUBLISH_TIME, MODIFY_TIME, STATUS, 
+      IS_NORMS_PARAM, PICFILE)
+    values (#{id,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, #{attid,jdbcType=DECIMAL}, 
+      #{attvalue,jdbcType=VARCHAR}, #{ydirect,jdbcType=CHAR}, #{l3supcatid,jdbcType=CHAR}, 
+      #{yfill,jdbcType=CHAR}, #{attname,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{publishTime,jdbcType=DATE}, #{modifyTime,jdbcType=DATE}, #{status,jdbcType=CHAR}, 
+      #{isNormsParam,jdbcType=CHAR}, #{picfile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.BusinAttValue" >
+    insert into BUSIN_ATT_VALUE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="attid != null" >
+        ATTID,
+      </if>
+      <if test="attvalue != null" >
+        ATTVALUE,
+      </if>
+      <if test="ydirect != null" >
+        YDIRECT,
+      </if>
+      <if test="l3supcatid != null" >
+        L3SUPCATID,
+      </if>
+      <if test="yfill != null" >
+        YFILL,
+      </if>
+      <if test="attname != null" >
+        ATTNAME,
+      </if>
+      <if test="unit != null" >
+        UNIT,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="isNormsParam != null" >
+        IS_NORMS_PARAM,
+      </if>
+      <if test="picfile != null" >
+        PICFILE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="attid != null" >
+        #{attid,jdbcType=DECIMAL},
+      </if>
+      <if test="attvalue != null" >
+        #{attvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="ydirect != null" >
+        #{ydirect,jdbcType=CHAR},
+      </if>
+      <if test="l3supcatid != null" >
+        #{l3supcatid,jdbcType=CHAR},
+      </if>
+      <if test="yfill != null" >
+        #{yfill,jdbcType=CHAR},
+      </if>
+      <if test="attname != null" >
+        #{attname,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="isNormsParam != null" >
+        #{isNormsParam,jdbcType=CHAR},
+      </if>
+      <if test="picfile != null" >
+        #{picfile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.BusinAttValue" >
+    update BUSIN_ATT_VALUE
+    <set >
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="attid != null" >
+        ATTID = #{attid,jdbcType=DECIMAL},
+      </if>
+      <if test="attvalue != null" >
+        ATTVALUE = #{attvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="ydirect != null" >
+        YDIRECT = #{ydirect,jdbcType=CHAR},
+      </if>
+      <if test="l3supcatid != null" >
+        L3SUPCATID = #{l3supcatid,jdbcType=CHAR},
+      </if>
+      <if test="yfill != null" >
+        YFILL = #{yfill,jdbcType=CHAR},
+      </if>
+      <if test="attname != null" >
+        ATTNAME = #{attname,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="isNormsParam != null" >
+        IS_NORMS_PARAM = #{isNormsParam,jdbcType=CHAR},
+      </if>
+      <if test="picfile != null" >
+        PICFILE = #{picfile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.BusinAttValue" >
+    update BUSIN_ATT_VALUE
+    set BC_ID = #{bcId,jdbcType=DECIMAL},
+      ATTID = #{attid,jdbcType=DECIMAL},
+      ATTVALUE = #{attvalue,jdbcType=VARCHAR},
+      YDIRECT = #{ydirect,jdbcType=CHAR},
+      L3SUPCATID = #{l3supcatid,jdbcType=CHAR},
+      YFILL = #{yfill,jdbcType=CHAR},
+      ATTNAME = #{attname,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      STATUS = #{status,jdbcType=CHAR},
+      IS_NORMS_PARAM = #{isNormsParam,jdbcType=CHAR},
+      PICFILE = #{picfile,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByBcid" resultMap="BaseResultMap" parameterType="long" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_ATT_VALUE
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+</mapper>

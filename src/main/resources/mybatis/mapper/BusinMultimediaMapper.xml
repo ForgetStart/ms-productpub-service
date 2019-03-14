@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hc360.product.dao.BusinMultimediaMapper" >
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.BusinMultimedia" >
+    <id column="BIM_ID" property="bimId" jdbcType="DECIMAL" />
+    <result column="DEFAULTFLAG" property="defaultflag" jdbcType="CHAR" />
+    <result column="FILE_TYPE" property="fileType" jdbcType="VARCHAR" />
+    <result column="FILENAME" property="filename" jdbcType="VARCHAR" />
+    <result column="FILENOTES" property="filenotes" jdbcType="VARCHAR" />
+    <result column="UPLOADER" property="uploader" jdbcType="VARCHAR" />
+    <result column="UPLOAD_DATE" property="uploadDate" jdbcType="DATE" />
+    <result column="CHECKED" property="checked" jdbcType="CHAR" />
+    <result column="CHECKDATE" property="checkdate" jdbcType="DATE" />
+    <result column="CHECKMAN" property="checkman" jdbcType="VARCHAR" />
+    <result column="WHODEL" property="whodel" jdbcType="VARCHAR" />
+    <result column="WHOUPDATE" property="whoupdate" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="DATE" />
+    <result column="DELDATE" property="deldate" jdbcType="DATE" />
+    <result column="BC_ID" property="bcId" jdbcType="DECIMAL" />
+    <result column="EDITCHECKED" property="editchecked" jdbcType="DECIMAL" />
+    <result column="EDITPICNAME" property="editpicname" jdbcType="VARCHAR" />
+    <result column="IMAGE_WIDTH" property="imageWidth" jdbcType="DECIMAL" />
+    <result column="IMAGE_HEIGHT" property="imageHeight" jdbcType="DECIMAL" />
+    <result column="PICID" property="picid" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BIM_ID, DEFAULTFLAG, FILE_TYPE, FILENAME, FILENOTES, UPLOADER, UPLOAD_DATE, CHECKED, 
+    CHECKDATE, CHECKMAN, WHODEL, WHOUPDATE, UPDATETIME, DELDATE, BC_ID, EDITCHECKED, 
+    EDITPICNAME, IMAGE_WIDTH, IMAGE_HEIGHT, PICID, TITLE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from BUSIN_MULTIMEDIA
+    where BIM_ID = #{bimId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from BUSIN_MULTIMEDIA
+    where BIM_ID = #{bimId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.BusinMultimedia" >
+    insert into BUSIN_MULTIMEDIA (BIM_ID, DEFAULTFLAG, FILE_TYPE, 
+      FILENAME, FILENOTES, UPLOADER, 
+      UPLOAD_DATE, CHECKED, CHECKDATE, 
+      CHECKMAN, WHODEL, WHOUPDATE, 
+      UPDATETIME, DELDATE, BC_ID, 
+      EDITCHECKED, EDITPICNAME, IMAGE_WIDTH, 
+      IMAGE_HEIGHT, PICID, TITLE
+      )
+    values (#{bimId,jdbcType=DECIMAL}, #{defaultflag,jdbcType=CHAR}, #{fileType,jdbcType=VARCHAR}, 
+      #{filename,jdbcType=VARCHAR}, #{filenotes,jdbcType=VARCHAR}, #{uploader,jdbcType=VARCHAR}, 
+      #{uploadDate,jdbcType=DATE}, #{checked,jdbcType=CHAR}, #{checkdate,jdbcType=DATE}, 
+      #{checkman,jdbcType=VARCHAR}, #{whodel,jdbcType=VARCHAR}, #{whoupdate,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=DATE}, #{deldate,jdbcType=DATE}, #{bcId,jdbcType=DECIMAL}, 
+      #{editchecked,jdbcType=DECIMAL}, #{editpicname,jdbcType=VARCHAR}, #{imageWidth,jdbcType=DECIMAL}, 
+      #{imageHeight,jdbcType=DECIMAL}, #{picid,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.BusinMultimedia" >
+    insert into BUSIN_MULTIMEDIA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bimId != null" >
+        BIM_ID,
+      </if>
+      <if test="defaultflag != null" >
+        DEFAULTFLAG,
+      </if>
+      <if test="fileType != null" >
+        FILE_TYPE,
+      </if>
+      <if test="filename != null" >
+        FILENAME,
+      </if>
+      <if test="filenotes != null" >
+        FILENOTES,
+      </if>
+      <if test="uploader != null" >
+        UPLOADER,
+      </if>
+      <if test="uploadDate != null" >
+        UPLOAD_DATE,
+      </if>
+      <if test="checked != null" >
+        CHECKED,
+      </if>
+      <if test="checkdate != null" >
+        CHECKDATE,
+      </if>
+      <if test="checkman != null" >
+        CHECKMAN,
+      </if>
+      <if test="whodel != null" >
+        WHODEL,
+      </if>
+      <if test="whoupdate != null" >
+        WHOUPDATE,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="deldate != null" >
+        DELDATE,
+      </if>
+      <if test="bcId != null" >
+        BC_ID,
+      </if>
+      <if test="editchecked != null" >
+        EDITCHECKED,
+      </if>
+      <if test="editpicname != null" >
+        EDITPICNAME,
+      </if>
+      <if test="imageWidth != null" >
+        IMAGE_WIDTH,
+      </if>
+      <if test="imageHeight != null" >
+        IMAGE_HEIGHT,
+      </if>
+      <if test="picid != null" >
+        PICID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bimId != null" >
+        #{bimId,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultflag != null" >
+        #{defaultflag,jdbcType=CHAR},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filenotes != null" >
+        #{filenotes,jdbcType=VARCHAR},
+      </if>
+      <if test="uploader != null" >
+        #{uploader,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadDate != null" >
+        #{uploadDate,jdbcType=DATE},
+      </if>
+      <if test="checked != null" >
+        #{checked,jdbcType=CHAR},
+      </if>
+      <if test="checkdate != null" >
+        #{checkdate,jdbcType=DATE},
+      </if>
+      <if test="checkman != null" >
+        #{checkman,jdbcType=VARCHAR},
+      </if>
+      <if test="whodel != null" >
+        #{whodel,jdbcType=VARCHAR},
+      </if>
+      <if test="whoupdate != null" >
+        #{whoupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="deldate != null" >
+        #{deldate,jdbcType=DATE},
+      </if>
+      <if test="bcId != null" >
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="editchecked != null" >
+        #{editchecked,jdbcType=DECIMAL},
+      </if>
+      <if test="editpicname != null" >
+        #{editpicname,jdbcType=VARCHAR},
+      </if>
+      <if test="imageWidth != null" >
+        #{imageWidth,jdbcType=DECIMAL},
+      </if>
+      <if test="imageHeight != null" >
+        #{imageHeight,jdbcType=DECIMAL},
+      </if>
+      <if test="picid != null" >
+        #{picid,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.BusinMultimedia" >
+    update BUSIN_MULTIMEDIA
+    <set >
+      <if test="defaultflag != null" >
+        DEFAULTFLAG = #{defaultflag,jdbcType=CHAR},
+      </if>
+      <if test="fileType != null" >
+        FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null" >
+        FILENAME = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filenotes != null" >
+        FILENOTES = #{filenotes,jdbcType=VARCHAR},
+      </if>
+      <if test="uploader != null" >
+        UPLOADER = #{uploader,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadDate != null" >
+        UPLOAD_DATE = #{uploadDate,jdbcType=DATE},
+      </if>
+      <if test="checked != null" >
+        CHECKED = #{checked,jdbcType=CHAR},
+      </if>
+      <if test="checkdate != null" >
+        CHECKDATE = #{checkdate,jdbcType=DATE},
+      </if>
+      <if test="checkman != null" >
+        CHECKMAN = #{checkman,jdbcType=VARCHAR},
+      </if>
+      <if test="whodel != null" >
+        WHODEL = #{whodel,jdbcType=VARCHAR},
+      </if>
+      <if test="whoupdate != null" >
+        WHOUPDATE = #{whoupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="deldate != null" >
+        DELDATE = #{deldate,jdbcType=DATE},
+      </if>
+      <if test="bcId != null" >
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="editchecked != null" >
+        EDITCHECKED = #{editchecked,jdbcType=DECIMAL},
+      </if>
+      <if test="editpicname != null" >
+        EDITPICNAME = #{editpicname,jdbcType=VARCHAR},
+      </if>
+      <if test="imageWidth != null" >
+        IMAGE_WIDTH = #{imageWidth,jdbcType=DECIMAL},
+      </if>
+      <if test="imageHeight != null" >
+        IMAGE_HEIGHT = #{imageHeight,jdbcType=DECIMAL},
+      </if>
+      <if test="picid != null" >
+        PICID = #{picid,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BIM_ID = #{bimId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.BusinMultimedia" >
+    update BUSIN_MULTIMEDIA
+    set DEFAULTFLAG = #{defaultflag,jdbcType=CHAR},
+      FILE_TYPE = #{fileType,jdbcType=VARCHAR},
+      FILENAME = #{filename,jdbcType=VARCHAR},
+      FILENOTES = #{filenotes,jdbcType=VARCHAR},
+      UPLOADER = #{uploader,jdbcType=VARCHAR},
+      UPLOAD_DATE = #{uploadDate,jdbcType=DATE},
+      CHECKED = #{checked,jdbcType=CHAR},
+      CHECKDATE = #{checkdate,jdbcType=DATE},
+      CHECKMAN = #{checkman,jdbcType=VARCHAR},
+      WHODEL = #{whodel,jdbcType=VARCHAR},
+      WHOUPDATE = #{whoupdate,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=DATE},
+      DELDATE = #{deldate,jdbcType=DATE},
+      BC_ID = #{bcId,jdbcType=DECIMAL},
+      EDITCHECKED = #{editchecked,jdbcType=DECIMAL},
+      EDITPICNAME = #{editpicname,jdbcType=VARCHAR},
+      IMAGE_WIDTH = #{imageWidth,jdbcType=DECIMAL},
+      IMAGE_HEIGHT = #{imageHeight,jdbcType=DECIMAL},
+      PICID = #{picid,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR}
+    where BIM_ID = #{bimId,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="getImagesByBcid" parameterType="long" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from BUSIN_MULTIMEDIA
+    where bc_id = #{bcid,jdbcType=DECIMAL}
+  </select>
+
+  <update id="uncheckPic" parameterType="java.math.BigDecimal">
+    update BUSIN_MULTIMEDIA  set CHECKED='1',CHECKMAN='免审',checkdate=sysdate where BC_ID=#{bcid,jdbcType=DECIMAL}
+  </update>
+</mapper>

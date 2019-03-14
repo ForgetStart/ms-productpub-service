@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc360.product.dao.BusinPdfDataMapper">
+    <resultMap id="BaseResultMap" type="com.hc360.product.po.PdfSave">
+        <id column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="BC_ID" jdbcType="DECIMAL" property="bcid" />
+        <result column="PDF_SHOW_ID" jdbcType="DECIMAL" property="pdfshowid" />
+    </resultMap>
+    <sql id="Base_Column_List">
+      ID,BC_ID,PDF_SHOW_ID
+  </sql>
+
+    <delete id="delPdfPDFSave">
+        delete from PDF_SAVE where BC_ID=#{bcid,jdbcType=DECIMAL}
+    </delete>
+
+    <update id="delPdfPDFShow">
+        update PDF_SHOW set states ='1' where id in (#{pdfshowidsdelete,jdbcType=VARCHAR})
+    </update>
+
+
+   <insert id="savePdfInfo" parameterType="com.hc360.product.po.PdfSave" >
+     INSERT INTO PDF_SAVE
+    (ID, BC_ID, PDF_SHOW_ID)
+    VALUES
+      (PDF_SAVE_SEQ.NEXTVAL,#{bcid,jdbcType=DECIMAL},#{pdfshowid,jdbcType=DECIMAL})
+  </insert>
+
+
+  <insert id="savePdfShowInfo" parameterType="com.hc360.product.po.PdfShow" >
+    <selectKey keyProperty="id" keyColumn="ID" resultType="java.lang.Long" order="BEFORE">
+          select PDF_SHOW_SEQ.NEXTVAL from dual
+    </selectKey>
+     INSERT INTO PDF_SHOW
+    (ID, PDF_NAME, PROVIDERID, PDF_URL, ADD_DATE, ADD_USER, STATES)
+    VALUES
+      (#{id,jdbcType=DECIMAL}, #{pdfname,jdbcType=VARCHAR}, #{providerid,jdbcType=DECIMAL}, #{pdfurl,jdbcType=VARCHAR}, sysdate, #{adduser,jdbcType=VARCHAR},'0')
+  </insert>
+
+
+  <select id="getPdfShowInfo" resultType="com.hc360.product.po.PdfShow">
+  	 SELECT ID,PDF_NAME as pdfname,PROVIDERID,ADD_DATE as adddate,ADD_USER as adduser,DELETE_DATE as deletedate,DELETE_USER as deleteuser,STATES,PDF_URL as pdfurl
+  	  FROM PDF_SHOW where providerid=#{providerid,jdbcType=DECIMAL} and id=#{pdfshowid,jdbcType=DECIMAL} and states='0'
+  </select>
+
+  <select id="countBindPdfShow" resultType="java.lang.Integer">
+  	  select count(*) from Pdf_Save s where s.PDF_SHOW_ID =#{pdfshowid,jdbcType=DECIMAL}<if test="bcid>0"> and s.BC_ID != #{bcid,jdbcType=DECIMAL}</if>
+  </select>
+
+   <select id="countPdfShowByProviderid" resultType="java.lang.Integer">
+        select count(*) from Pdf_Show where providerid =#{providerid,jdbcType=DECIMAL}
+   </select>
+
+    <select id="countPdfSameNameList" resultType="java.lang.Integer">
+        select count(*) from Pdf_Show where providerid =#{providerid,jdbcType=DECIMAL} and pdf_name = #{pdfname,jdbcType=VARCHAR} and states = '0'
+   </select>
+
+
+  <select id="getPdfShowList" resultType="com.hc360.product.po.PdfShow">
+  	 SELECT ID,PDF_NAME as pdfname,PROVIDERID,ADD_DATE as adddate,ADD_USER as adduser,DELETE_DATE as deletedate,DELETE_USER as deleteuser,STATES,PDF_URL as pdfurl
+  	  FROM PDF_SHOW where providerid=#{providerid,jdbcType=DECIMAL}  and states='0' order by id desc
+  </select>
+
+  <select id="getPdfByBcid" resultType="com.hc360.product.po.PdfShow">
+  	select a.pdf_name as pdfname,a.pdf_url as pdfurl,a.id as id from Pdf_Show a,Pdf_Save b where a.id=b.pdf_show_id and b.bc_id=#{bcid,jdbcType=DECIMAL} and a.states = '0'
+  </select>
+
+  <select id="getPdfShowCount" resultType="int">
+      select count(1) from PDF_SHOW ps where ps.providerid = #{providerid}
+  </select>
+</mapper>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc360.product.dao.ProductSkuMapper">
+  <resultMap id="BaseResultMap" type="com.hc360.product.po.ProductSku">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="BC_ID" jdbcType="DECIMAL" property="bcId" />
+    <result column="CODING" jdbcType="VARCHAR" property="coding" />
+    <result column="SKU_VALUE" jdbcType="VARCHAR" property="skuValue" />
+    <result column="NUM" jdbcType="DECIMAL" property="num" />
+    <result column="PUBLISH_TIME" jdbcType="DATE" property="publishTime" />
+    <result column="MODIFY_TIME" jdbcType="DATE" property="modifyTime" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="KEY_INDEX" jdbcType="VARCHAR" property="keyIndex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, BC_ID, CODING, SKU_VALUE, NUM, PUBLISH_TIME, MODIFY_TIME, STATUS, KEY_INDEX
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCT_SKU
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from PRODUCT_SKU
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.hc360.product.po.ProductSku">
+    insert into PRODUCT_SKU (ID, BC_ID, CODING, 
+      SKU_VALUE, NUM, PUBLISH_TIME, 
+      MODIFY_TIME, STATUS, KEY_INDEX
+      )
+    values (#{id,jdbcType=DECIMAL}, #{bcId,jdbcType=DECIMAL}, #{coding,jdbcType=VARCHAR}, 
+      #{skuValue,jdbcType=VARCHAR}, #{num,jdbcType=DECIMAL}, #{publishTime,jdbcType=DATE}, 
+      #{modifyTime,jdbcType=DATE}, #{status,jdbcType=CHAR}, #{keyIndex,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hc360.product.po.ProductSku">
+    insert into PRODUCT_SKU
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="bcId != null">
+        BC_ID,
+      </if>
+      <if test="coding != null">
+        CODING,
+      </if>
+      <if test="skuValue != null">
+        SKU_VALUE,
+      </if>
+      <if test="num != null">
+        NUM,
+      </if>
+      <if test="publishTime != null">
+        PUBLISH_TIME,
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="keyIndex != null">
+        KEY_INDEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="bcId != null">
+        #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="coding != null">
+        #{coding,jdbcType=VARCHAR},
+      </if>
+      <if test="skuValue != null">
+        #{skuValue,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="keyIndex != null">
+        #{keyIndex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc360.product.po.ProductSku">
+    update PRODUCT_SKU
+    <set>
+      <if test="bcId != null">
+        BC_ID = #{bcId,jdbcType=DECIMAL},
+      </if>
+      <if test="coding != null">
+        CODING = #{coding,jdbcType=VARCHAR},
+      </if>
+      <if test="skuValue != null">
+        SKU_VALUE = #{skuValue,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        NUM = #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="publishTime != null">
+        PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="keyIndex != null">
+        KEY_INDEX = #{keyIndex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc360.product.po.ProductSku">
+    update PRODUCT_SKU
+    set BC_ID = #{bcId,jdbcType=DECIMAL},
+      CODING = #{coding,jdbcType=VARCHAR},
+      SKU_VALUE = #{skuValue,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=DECIMAL},
+      PUBLISH_TIME = #{publishTime,jdbcType=DATE},
+      MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      STATUS = #{status,jdbcType=CHAR},
+      KEY_INDEX = #{keyIndex,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByBcid" parameterType="long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCT_SKU
+    where STATUS='0' and BC_ID = #{bcid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByBcid" parameterType="long">
+    delete from PRODUCT_SKU
+    where BC_ID = #{bcid,jdbcType=DECIMAL}
+  </delete>
+</mapper>
